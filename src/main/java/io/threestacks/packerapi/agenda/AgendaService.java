@@ -1,18 +1,29 @@
 package io.threestacks.packerapi.agenda;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Service;
 
 
 import java.util.ArrayList;
 import java.util.List;
-
+import javax.annotation.PostConstruct;
+import javax.sql.DataSource;
 
 @Service
-public class AgendaService {
+public class AgendaService extends JdbcDaoSupport {
 
-    @Autowired
+
     private AgendaRepository agendaRepository;
+    @Autowired
+    DataSource dataSource;
+    String sql;
+    @PostConstruct
+    private void initialize(){
+        setDataSource(dataSource);
+        System.out.println(spring.datasource.url);
+        System.out.println();
+    }
 
     public List<Agenda> getAllAgendas(){
         List<Agenda> agendas = new ArrayList<>();
