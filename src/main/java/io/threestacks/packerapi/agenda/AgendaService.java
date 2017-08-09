@@ -46,11 +46,11 @@ public class AgendaService extends JdbcDaoSupport {
         return agenda;
     }
 
-//    public Agenda updateAgenda(long id, Agenda agenda){
-//        Agenda agendaFound = agendaRepository.findOne(id);
-//        agendaRepository.save(agenda);
-//        return agenda;
-//    }
+    public Agenda updateAgenda(long id, Agenda agenda){
+        Agenda agendaFound = agendaRepository.findOne(id);
+        agendaRepository.save(agenda);
+        return agenda;
+    }
 
     public void deleteAgenda(long id){
         agendaRepository.delete(id);

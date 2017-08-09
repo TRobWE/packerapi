@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
+@CrossOrigin
 public class AgendaController {
 
     @Autowired
@@ -38,11 +39,11 @@ public class AgendaController {
         return newAgenda;
     }
 
-//    @RequestMapping(method= RequestMethod.PUT, value="/agendas/{id}")
-//    public Agenda updateAgenda(@RequestBody Agenda agenda, @PathVariable long id){
-//        Agenda updatedAgenda = agendaService.updateAgenda(id, agenda);
-//        return updatedAgenda;
-//    }
+    @RequestMapping(method= RequestMethod.PUT, value="/agendas/{id}")
+    public Agenda updateAgenda(@RequestBody Agenda agenda, @PathVariable long id){
+        Agenda updatedAgenda = agendaService.updateAgenda(id, agenda);
+        return updatedAgenda;
+    }
 
     @RequestMapping(method= RequestMethod.DELETE, value="/agendas/{id}")
     public void deleteAgenda(@PathVariable long id){
